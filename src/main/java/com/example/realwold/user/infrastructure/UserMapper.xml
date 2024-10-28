@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.realwold.user.infrastructure.UserMapper">
+    <resultMap id="userMap" type="com.example.realwold.user.domain.User">
+        <association property="id" javaType="com.example.realwold.user.domain.UserId">
+            <constructor>
+                <arg name="value" column="id" javaType="java.util.UUID"/>
+            </constructor>
+        </association>
+        <association property="username" javaType="com.example.realwold.user.domain.Username">
+            <constructor>
+                <arg name="value" column="username" javaType="java.lang.String"/>
+            </constructor>
+        </association>
+        <association property="emailAddress" javaType="com.example.realwold.user.domain.EmailAddress">
+            <constructor>
+                <arg name="value" column="email_address" javaType="java.lang.String"/>
+            </constructor>
+        </association>
+        <association property="password" javaType="com.example.realwold.user.domain.Password">
+            <constructor>
+                <arg name="value" column="password" javaType="java.lang.String"/>
+            </constructor>
+        </association>
+    </resultMap>
+</mapper>
