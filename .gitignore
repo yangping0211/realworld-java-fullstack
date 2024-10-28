@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 node_modules
+.env
+application-local.properties
 
 ### STS ###
 .apt_generated
