@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "mkdir -p target/classes/static/css && tailwindcss -i src/main/resources/static/css/input.css -o target/classes/static/css/main.css",
+    "watch": "mkdir -p target/classes/static/css && tailwindcss -i src/main/resources/static/css/input.css -o target/classes/static/css/main.css --watch"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "tailwindcss": "^3.4.14"
+  }
+}
