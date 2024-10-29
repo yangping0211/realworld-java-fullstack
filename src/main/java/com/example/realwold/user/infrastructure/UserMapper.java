@@ -5,8 +5,10 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
+import com.example.realwold.user.domain.EmailAddress;
 import com.example.realwold.user.domain.User;
 import com.example.realwold.user.domain.UserId;
+import com.example.realwold.user.domain.Username;
 
 @Mapper
 public interface UserMapper {
@@ -31,4 +33,28 @@ public interface UserMapper {
             """)
     @ResultMap("com.example.realwold.user.infrastructure.UserMapper.userMap")
     Optional<User> selectByUserId(UserId id);
+
+    @Select("""
+            SELECT
+                id,
+                username,
+                email_address,
+                password
+            FROM users
+            WHERE username = #{value}
+            """)
+    @ResultMap("com.example.realwold.user.infrastructure.UserMapper.userMap")
+    Optional<User> selectByUsername(Username username);
+
+    @Select("""
+            SELECT
+                id,
+                username,
+                email_address,
+                password
+            FROM users
+            WHERE email_address = #{value}
+            """)
+    @ResultMap("com.example.realwold.user.infrastructure.UserMapper.userMap")
+    Optional<User> selectByEmail(EmailAddress emailAddress);
 }

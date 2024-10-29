@@ -2,9 +2,11 @@ package com.example.realwold.user.infrastructure;
 
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
+import com.example.realwold.user.domain.EmailAddress;
 import com.example.realwold.user.domain.User;
 import com.example.realwold.user.domain.UserId;
 import com.example.realwold.user.domain.UserRepository;
+import com.example.realwold.user.domain.Username;
 import lombok.RequiredArgsConstructor;
 
 @Repository
@@ -20,5 +22,15 @@ public class UserMybatisRepository implements UserRepository {
     @Override
     public Optional<User> load(UserId id) {
         return userMapper.selectByUserId(id);
+    }
+
+    @Override
+    public boolean isDuplicateUsername(Username username) {
+        return userMapper.selectByUsername(username).isPresent();
+    }
+
+    @Override
+    public boolean isDuplicateEmail(EmailAddress emailAddress) {
+        return userMapper.selectByEmail(emailAddress).isPresent();
     }
 }

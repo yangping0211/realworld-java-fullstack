@@ -13,4 +13,8 @@ public class User {
     private Username username;
     private EmailAddress emailAddress;
     private Password password;
+
+    public static User of(Username username, EmailAddress emailAddress, Password password) {
+        return new User(UserId.newUserId(), username, emailAddress, password);
+    }
 }
