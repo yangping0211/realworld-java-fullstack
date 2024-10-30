@@ -18,6 +18,9 @@
         "bradlc.vscode-tailwindcss"
       ],
       "settings": {
+        "files.associations": {
+          "*.css": "tailwindcss"
+        },
         "java.format.settings.profile": "GoogleStyle",
         "java.format.settings.url": ".vscode/eclipse-java-google-style.xml",
         "java.saveActions.organizeImports": true,
