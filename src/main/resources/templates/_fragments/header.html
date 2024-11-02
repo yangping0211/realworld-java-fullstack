@@ -1,0 +1,40 @@
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <nav th:fragment="menu" class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <a href="#" class="text-2xl font-bold text-lime-500">conduit</a>
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline justify-end space-x-4">
+              <a
+                href="#"
+                class="px-3 py-2 text-sm font-medium text-gray-400"
+                aria-current="page"
+                >Home</a
+              >
+              <a
+                href="#"
+                class="px-3 py-2 text-sm font-medium text-gray-400"
+                aria-current="page"
+                >Sign in</a
+              >
+              <a
+                th:href="@{/signup}"
+                class="px-3 py-2 text-sm font-medium text-gray-400"
+                aria-current="page"
+                >Sign up</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{_layouts/layout}"
+>
+  <haed>
+    <title th:text="${menu}"></title>
+  </haed>
+  <body>
+    <div
+      layout:fragment="page-content"
+      class="flex flex-col justify-center px-6 lg:px-8"
+    >
+      <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h1
+          class="text-center text-2xl/9 font-bold tracking-tight text-gray-900"
+        >
+          Sign up
+        </h1>
+      </div>
+
+      <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <form th:action="@{'/signup'}" method="post" th:object="${signupForm}">
+          <div class="relative mt-6 rounded-md shadow-sm">
+            <label
+              for="username"
+              class="block text-sm font-medium text-gray-700"
+              th:text="#{login.username}"
+            >
+              Username
+            </label>
+            <input
+              id="username"
+              type="text"
+              th:field="*{username}"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-500 sm:text-sm/6"
+            />
+          </div>
+          <p
+            th:if="${#fields.hasErrors('username')}"
+            th:text="${#strings.listJoin(#fields.errors('username'), ', ')}"
+            class="mt-1 text-xs text-red-600"
+          >
+            Field validation error message(s).
+          </p>
+          <div class="relative mt-6 rounded-md shadow-sm">
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-700"
+              th:text="#{login.email}"
+            >
+              email
+            </label>
+            <input
+              id="email"
+              type="text"
+              th:field="*{email}"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-500 sm:text-sm/6"
+            />
+          </div>
+          <p
+            th:if="${#fields.hasErrors('email')}"
+            th:text="${#strings.listJoin(#fields.errors('email'), ', ')}"
+            class="mt-1 text-xs text-red-600"
+          >
+            Field validation error message(s).
+          </p>
+          <div class="relative mt-6 rounded-md shadow-sm">
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-700"
+              th:text="#{login.password}"
+            >
+              password
+            </label>
+            <input
+              id="password"
+              type="password"
+              th:field="*{password}"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-500 sm:text-sm/6"
+            />
+          </div>
+          <p
+            th:if="${#fields.hasErrors('password')}"
+            th:text="${#strings.listJoin(#fields.errors('password'), ', ')}"
+            class="mt-1 text-xs text-red-600"
+          >
+            Field validation error message(s).
+          </p>
+          <div class="relative mt-6 rounded-md shadow-sm">
+            <button
+              type="submit"
+              class="flex w-full justify-center rounded-md bg-lime-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-lime-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Sign up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

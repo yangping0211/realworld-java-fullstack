@@ -1,0 +1,25 @@
+<!doctype html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  class="h-full"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title layout:title-pattern="$LAYOUT_TITLE">Conduit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+  </head>
+  <body class="h-full">
+    <div class="flex min-h-full flex-col">
+      <div th:replace="~{_fragments/header :: menu}"></div>
+
+      <div class="mb-auto">
+        <div layout:fragment="page-content"></div>
+      </div>
+
+      <div th:replace="~{_fragments/footer :: footer}"></div>
+    </div>
+  </body>
+</html>
